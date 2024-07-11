@@ -5,7 +5,7 @@ import Basket from "./Basket";
 export default function OtherNavbar() {
     const authMember = null;
 
-    return 
+    return (
     <div className="other-navbar">
         <Container className="navbar-container">
             <Stack className="menu" >
@@ -64,5 +64,6 @@ export default function OtherNavbar() {
             </Stack>
           </Stack>
         </Container>
-    </div>;
+    </div>
+    )
 }

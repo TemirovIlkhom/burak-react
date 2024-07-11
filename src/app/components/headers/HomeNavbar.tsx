@@ -5,7 +5,7 @@ import Basket from "./Basket";
 export default function HomeNavbar() {
     const authMember = null;
 
-    return 
+    return( 
     <div className="home-navbar">
         <Container className="navbar-container">
             <Stack className="menu" >
@@ -79,5 +79,6 @@ export default function HomeNavbar() {
             </Box>
         </Stack>
         </Container>
-    </div>;
+    </div>
+    )
 }
