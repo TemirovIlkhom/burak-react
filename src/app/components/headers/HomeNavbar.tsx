@@ -5,7 +5,7 @@ import Basket from "./Basket";
 export default function HomeNavbar() {
     const authMember = null;
 
-    return( 
+    return ( 
     <div className="home-navbar">
         <Container className="navbar-container">
             <Stack className="menu" >
@@ -65,9 +65,9 @@ export default function HomeNavbar() {
           </Stack>
         <Stack className={"header-frame"}>
             <Stack className={"detail"}>
-                <Box className={"head-main-txt"}>World's</Box>
-                <Box className={"wel-txt"}>The Choice</Box>
-                <Box className={"service-txt"}>24 hours</Box>
+                <Box className={"head-main-txt"}>World's Most Delicious Cousine</Box>
+                <Box className={"wel-txt"}>The Choice, not just a choice</Box>
+                <Box className={"service-txt"}>24 hours service</Box>
                 <Box className={"signup"}>
                     {!authMember ? (
                         <Button variant={"contained"} className={"signup-button"}>SIGN UP</Button>
