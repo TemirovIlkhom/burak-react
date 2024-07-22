@@ -83,8 +83,9 @@ export default function OrdersPage() {
     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
     
     badgeContent={
-        <Avatar variant="solid" 
-        sx={{ '--Avatar-size': '24px' }}
+        <Avatar variant="soft" 
+        src="/icons/user-badge.svg "
+        sx={{ '--Avatar-size': '30px', }}
         />
       
     }
