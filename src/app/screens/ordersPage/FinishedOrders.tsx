@@ -198,6 +198,14 @@ export default function FinishedOrders() {
     </Box>
       )
     })} 
+    {false && (
+      <Box display={"flex"} flexDirection={"row"} justifyContent={"center"}>
+        <img
+        src='/icons/noimage-list.svg'
+        style={{width: 300, height: 300}}
+        />
+      </Box>
+    )}
     </Stack>
   );
 }
