@@ -29,7 +29,7 @@ export default function PausedOrders() {
     <Stack>
     {[1, 2, 3].map((ele, index) => {
            return(
-           <Box sx={{ p: 2 }}>salom
+           <Box sx={{ p: 2 }}> 
       <Card sx={{ 
         borderRadius: 3, 
         mt: 5, 

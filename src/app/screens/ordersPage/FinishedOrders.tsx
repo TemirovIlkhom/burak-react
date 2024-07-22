@@ -28,7 +28,7 @@ export default function FinishedOrders() {
     <Stack>
     {[1, 2, 3].map((ele, index) => {
            return(
-           <Box sx={{ p: 2 }}>xatir
+           <Box sx={{ p: 2 }}> 
       <Card sx={{ 
         borderRadius: 3, 
         mt: 5, 
@@ -188,10 +188,10 @@ export default function FinishedOrders() {
               <Typography variant="h6" color="success.main" sx={{ mb: 2 }}>
               Shipping is free for you
               </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', mt: 4 }}>
+              {/* <Box sx={{ display: 'flex', flexDirection: 'column', mt: 4 }}>
                 <Button variant="contained" color="primary" size="small">PAYMENT</Button>
                 <Button variant="outlined" color="primary" size="small" sx={{ mt: 2 }}>CANCEL</Button>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
       </Card>

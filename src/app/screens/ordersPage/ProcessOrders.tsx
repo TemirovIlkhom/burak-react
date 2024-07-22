@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Card,  Typography, Button, Rating, Avatar, Stack, LinearProgress, styled } from '@mui/material';
+import { Box, Card,  Typography, Button, Rating, Avatar, Stack, LinearProgress } from '@mui/material';
 import { Star as StarIcon } from '@mui/icons-material';
-import TabPanel  from '@mui/lab/TabPanel';
+import moment from 'moment';
 
 const labels: { [index: string]: string } = {
   0.5: 'Useless',
@@ -27,7 +27,7 @@ export default function ProcessOrders() {
     <Stack>
     {[1, 2, 3].map((ele, index) => {
            return(
-           <Box sx={{ p: 2 }}>alik
+           <Box sx={{ p: 2 }}>
       <Card sx={{ 
         borderRadius: 3, 
         mt: 5, 
@@ -45,7 +45,7 @@ export default function ProcessOrders() {
                      {[1, 2].map((ele2, index2) => {
                 return(
                      <Box
-              sx={{ display: "flex", flexDirection: "row", alignItems: "center"}}>
+              sx={{ display: "flex", flexDirection: "row", }}>
 
             <Box sx={{
               pl: '8px',
@@ -200,7 +200,7 @@ export default function ProcessOrders() {
               Shipping is free for you
               </Typography>
               <Typography variant="h6" color="success.main" sx={{ mb: 2 }}>
-              Shipping is free for you
+              {moment().format("YY-MM-DD HH:mm")}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', mt: 4 }}>
                 <Button variant="contained" color="primary" size="small">VERIFY TO FULFIL</Button>

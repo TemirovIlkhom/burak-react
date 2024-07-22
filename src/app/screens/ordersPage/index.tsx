@@ -1,15 +1,17 @@
 import React, { SyntheticEvent, useState }  from "react";
 import {  Container, Stack } from "@mui/material";
-import "../../../css/order.css";
 import Tab from "@mui/material/Tab";
 import TabContext from '@mui/lab/TabContext';
-import Tabs from '@mui/material/Tabs';
-import PausedOrders from "./ProcessOrders";
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import PausedOrders from "./PausedOrders";
 import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FinishedOrders";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Avatar from '@mui/joy/Avatar';
+import InfoOutlined from '@mui/icons-material/InfoOutlined';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 
+import Avatar from '@mui/joy/Avatar';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
@@ -18,24 +20,22 @@ import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 import { CssVarsProvider } from "@mui/joy/styles";
 import Box from '@mui/joy/Box';
-import Badge, { badgeClasses } from '@mui/joy/Badge';
+import Badge  from '@mui/joy/Badge';
 import Checkbox from '@mui/joy/Checkbox';
 import Divider from '@mui/joy/Divider';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
-import InfoOutlined from '@mui/icons-material/InfoOutlined';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+
+import "../../../css/order.css";
 
 
 
 
 
 export default function OrdersPage() {
-  const [value, setValue] = useState("1"); 
+  const [value, setValue] = useState('1'); 
 
   /** HANDLERS **/
   const handleChange = (e: SyntheticEvent, newValue: string) => {
@@ -47,14 +47,16 @@ export default function OrdersPage() {
       <Stack className={'order-left'}>
                     <TabContext value={value}>
                             <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                            <TabList onChange={handleChange}
+                            <TabList 
+                            onChange={handleChange}
                              aria-label="lab API tabs example"
                               className={"table-list"}>
-                                    <Tab label="PAUSED ORDERS" value= "1"/>
+                                    <Tab label="PAUSED ORDERS" value="1"/>
                                     <Tab label="PROCESS ORDERS" value='2'/>
                                     <Tab label="FINISHED ORDERS" value='3'/>
                                 </TabList>
                             </Box> 
+                            
                          <Stack className={'order-main-content'}>
                            <TabPanel value="1" sx={{ p: 0 }}><PausedOrders /></TabPanel>
                            <TabPanel value='2' sx={{ p: 0 }}><ProcessOrders /></TabPanel>
