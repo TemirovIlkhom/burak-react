@@ -1,0 +1,44 @@
+.order-page {
+    width: 100%;
+    height: auto;
+    background: #f8f8ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-page .order-container {
+    margin: 50px 0px 50px 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.order-page .order-left {
+    width: 70%;
+    height: auto;
+}
+
+.order-page .order-main-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-page .order-right {
+    margin-top: 86px;
+    margin-left: 30px;
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-page .order-right .card-icons {
+    width: 330px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

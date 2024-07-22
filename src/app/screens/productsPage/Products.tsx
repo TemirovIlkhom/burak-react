@@ -39,6 +39,7 @@ export default function Products() {
             <Stack className={"avatar-big-box"}>
                     <Stack className="title-search-box">
                         <span>Burak Restaurant</span>
+                        
                         <CustomInput
                          disableUnderline
                          placeholder="Type in here..."
@@ -162,7 +163,7 @@ export default function Products() {
                     </Stack>
             <Stack className="pagination-section">
                 <Pagination
-                count={3}
+                count={10}
                 page={1}
                 renderItem={(item) => (
                     <PaginationItem
@@ -181,6 +182,7 @@ export default function Products() {
         <div className="brands-logo">
             <span className="logo-title">Our Family Brands</span>
             <Container className="logo-box">
+              
             <Card sx={{ 
                 maxWidth: 259,
                 height: 350, 
@@ -198,6 +200,7 @@ export default function Products() {
         />
       </CardActionArea>
     </Card>
+
     <Card sx={{ 
                 maxWidth: 259,
                 height: 350, 
