@@ -185,7 +185,7 @@ export default function ProcessOrders() {
               borderLeft: '1px solid',
               display: 'flex', 
               flexDirection: "column",
-              justifyContent: "end", 
+              justifyContent: "center", 
               borderColor: 'divider', 
               mb: "20px",
               pl: 2 

@@ -34,13 +34,14 @@ import "../../../css/order.css";
 
 
 
+
 export default function OrdersPage() {
   const [value, setValue] = useState('1'); 
 
   /** HANDLERS **/
   const handleChange = (e: SyntheticEvent, newValue: string) => {
     setValue(newValue);
-  };
+  }
   return (
     <div className="order-page">
       <Container className="order-container">
@@ -64,6 +65,9 @@ export default function OrdersPage() {
                         </Stack>
             </TabContext>
                 </Stack>
+
+
+
                 <Stack className={'order-right'}>
                     <CssVarsProvider>
                 <Card
@@ -189,4 +193,3 @@ export default function OrdersPage() {
     </div>
   )
 }
-  

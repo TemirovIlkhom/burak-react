@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Card, Typography, Button, Rating, Avatar, Stack } from '@mui/material';
 import { Star as StarIcon } from '@mui/icons-material';
-import TabPanel  from '@mui/lab/TabPanel';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 
 const labels: { [index: string]: string } = {
@@ -174,7 +174,7 @@ export default function FinishedOrders() {
               borderLeft: '1px solid',
               display: 'flex', 
               flexDirection: "column",
-              justifyContent: "end", 
+              justifyContent: "center", 
               borderColor: 'divider', 
               mb: "20px",
               pl: 2 
@@ -188,10 +188,10 @@ export default function FinishedOrders() {
               <Typography variant="h6" color="success.main" sx={{ mb: 2 }}>
               Shipping is free for you
               </Typography>
-              {/* <Box sx={{ display: 'flex', flexDirection: 'column', mt: 4 }}>
-                <Button variant="contained" color="primary" size="small">PAYMENT</Button>
-                <Button variant="outlined" color="primary" size="small" sx={{ mt: 2 }}>CANCEL</Button>
-              </Box> */}
+              <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: "space-around", mt: 4 }}>
+              Delivery was sent
+              <DoneAllIcon fontSize="large" color="success" />
+              </Box>
             </Box>
           </Box>
       </Card>
