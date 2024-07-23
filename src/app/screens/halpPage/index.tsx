@@ -78,8 +78,8 @@ export default function HelpPage() {
                       <p>Fill out below form to send a message!</p>
                     </Box>
                     <form
-                      action={"#"}
-                      method={"POST"}
+                      // action={"#"}
+                      // method={"POST"}
                       className={"admin-letter-frame"}
                     >
                       <div className={"admin-input-box"}>
