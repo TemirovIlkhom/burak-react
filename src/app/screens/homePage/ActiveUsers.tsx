@@ -5,15 +5,23 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import AspectRatio  from "@mui/joy/AspectRatio";
 import { CssVarsProvider } from "@mui/joy/styles";
 
-const activeUsers = [
-    { productName: "Martin", imagePath: "/img/martin.webp" },
-    { productName: "Justin", imagePath: "/img/justin.webp" },
-    { productName: "Rose", imagePath: "/img/rose.webp" },
-    { productName: "Nusret", imagePath: "/img/nusret.webp" },
-]
+
+import { useSelector } from "react-redux";
+import { createSelector } from "reselect";
+import { retrieveTopUsers } from "./selector";
+import { serverApi } from "../../../lib/config";
+import { Member } from "../../../lib/types/member";
+
+/** REDUX SLICE & SELECTOR */
+const TopUsersRetriever = createSelector(
+    retrieveTopUsers,
+  (topUsers) => ({ topUsers })
+);
 
 
 export default function ActiveUsers() {
+  const { topUsers } = useSelector(TopUsersRetriever);
+
     return (
     <div className={"active-users-frame"}>
         <Container>
@@ -21,13 +29,14 @@ export default function ActiveUsers() {
                 <Box className={"category-title"}>Active Users</Box>
                 <Stack className={"cards-frame"}>
                     <CssVarsProvider>
-                    {activeUsers.length !== 0 ? (
-                         activeUsers.map((ele, index) => {
+                    {topUsers.length !== 0 ? (
+                         topUsers.map((member: Member) => {
+                      const imagePath = `${serverApi}/${member.memberImage}`;
                             return (
-                                <Card key={index} variant="outlined" className={"card"}>
+                                <Card key={member._id} variant="outlined" className={"card"}>
                                     <CardOverflow>
                                        <AspectRatio ratio="1">
-                                        <img src={ele.imagePath} alt="" />
+                                        <img src={imagePath} alt="" />
                                        </AspectRatio>
                                     </CardOverflow>
 
@@ -39,7 +48,7 @@ export default function ActiveUsers() {
                                             justifyContent={"center"}
                                             >
                                                 <Typography className={"title"}>
-                                                    {ele.productName}
+                                                    {member.memberNick}
                                                 </Typography>
                                             </Stack>
                                         </Stack>
