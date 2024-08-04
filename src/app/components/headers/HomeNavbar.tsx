@@ -9,12 +9,14 @@ export default function HomeNavbar() {
     const [count, setCount] = useState<number>(0);
     const [value, setValue] = useState<boolean>(true)
 
+    
+
     useEffect(() => {
-      console.log("componentDidMount"); //DATA FETCH
+    //   console.log("componentDidMount"); //DATA FETCH
       setCount(count + 1)
 
       return () => {
-        console.log("componentWillUnmount");
+        // console.log("componentWillUnmount");
       }
     }, [value]); // useEffect array dependence => componentDidUpdate
     
