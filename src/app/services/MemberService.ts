@@ -24,9 +24,8 @@ class MemberService {
     } catch (err) {
         console.log("Error, getTopUsers:", err);
         throw err;
-        
     }
 }
 }
 
-export default MemberService; 
+export default MemberService;  

@@ -25,7 +25,6 @@ const actionDispatch = ( dispatch: Dispatch ) => ({
 
 export default function HomePage() {
   const { setPopularDishes, setNewDishes, setTopUsers } = actionDispatch(useDispatch());
-  // Selector: Store => Data
 
   useEffect(() => {
     // Backend server data request => Data
@@ -38,7 +37,7 @@ export default function HomePage() {
       productCollection: ProductCollection.DISH
     })
     .then((data) => {
-      setPopularDishes(data);
+      setPopularDishes(data); // slice => action
     })
     .catch((err) => console.log(err));
 
@@ -49,14 +48,14 @@ export default function HomePage() {
       productCollection: ProductCollection.DISH
     })
     .then((data) => {
-      setNewDishes(data);
+      setNewDishes(data); // slice => action
     })
     .catch((err) => console.log(err));
 
     const member = new MemberService();
     member 
-    .getTopUsers()
-    .then((data) => setTopUsers(data))
+    .getTopUsers() 
+    .then((data) => setTopUsers(data)) // slice => action
     .catch((err) => console.log(err));
   }, []);
 
