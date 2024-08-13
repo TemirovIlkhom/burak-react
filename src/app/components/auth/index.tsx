@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
@@ -7,6 +8,7 @@ import { Fab, Stack, TextField } from "@mui/material";
 import styled from "styled-components";
 import LoginIcon from "@mui/icons-material/Login";
 import { T } from "../../../lib/types/common";
+import { Message } from "@mui/icons-material";
 import { Messages } from "../../../lib/config";
 import { LoginInput, MemberInput } from "../../../lib/types/member";
 import MemberService from "../../services/MemberService";
@@ -46,79 +48,84 @@ interface AuthenticationModalProps {
 export default function AuthenticationModal(props: AuthenticationModalProps) {
   const { signupOpen, loginOpen, handleSignupClose, handleLoginClose } = props;
   const classes = useStyles();
-
- const [memberNick, setMemberNick] = useState<string>("");
+  const [memberNick, setMemberNick] = useState<string>("");
   const [memberPhone, setMemberPhone] = useState<string>("");
-  const [memberPassword, setMemberPassword] = useState<string>("");
-  const { setAuthMember } = useGlobals();
+  const[memberPassword, setMemberPassword] = useState<string>("");
+  const {setAuthMember} = useGlobals();
 
-  /** HANDLERS **/
-  const handleUsername = ( e: T ) => {
+   /** HANDLERS **/
+
+   const handleUserName = (e: T) => {
+    console.log(e.target.value);
     setMemberNick(e.target.value);
-  };
-  const handlePhone = ( e: T ) => {
+   };
+    const handlePhone = (e: T) => {
+    console.log(e.target.value);
     setMemberPhone(e.target.value);
-  };
-  const handlePassword = ( e: T ) => {
+   };
+    const handlePassword = (e: T) => {
+    console.log(e.target.value);
     setMemberPassword(e.target.value);
-  };
-  const handlePasswordKeyDown = (e: T) => {
-    if (e.key === "Enter" && signupOpen) {
+   };
+   const handlepasswordKewDown = (e: T) => {
+    if(e.key === "Enter" && signupOpen) {
       handleSignupRequest().then();
-    } else if (e.key === "Enter" && loginOpen) {
-      handleLoginRequest().then();
-    }
-  };
+     } else if(e.key === "Enter" && loginOpen) {
+       handleLoginRequest().then()
 
-  const handleSignupRequest = async () => {
+     }
+
+   }
+   const handleSignupRequest = async () => {
     try {
-      const isFulfill =
-      memberNick !== "" && memberPhone !== "" && memberPassword !== "";
+      const isFulfill = memberNick !== "" && memberPhone !== " " && memberPassword !== "";
       if(!isFulfill) throw new Error(Messages.error3);
-
+      
       const signupInput: MemberInput = {
         memberNick: memberNick,
         memberPhone: memberPhone,
         memberPassword: memberPassword,
       };
+
       const member = new MemberService();
       const result = await member.signup(signupInput);
-
-      // Auth
-      setAuthMember(result)
+      // Saving Authenticated User
+      setAuthMember(result);
       handleSignupClose();
-    } catch (err) {
+      
+
+    } catch(err) {
       console.log(err);
       handleSignupClose();
       sweetErrorHandling(err).then();
     }
-  };
+   }
 
-  const handleLoginRequest = async () => {
+   const handleLoginRequest = async () => {
     try {
-      const isFulfill =
-      memberNick !== "" && memberPassword !== "";
+      const isFulfill = memberNick !== "" && memberPassword !== "";
       if(!isFulfill) throw new Error(Messages.error3);
-
+      
       const loginInput: LoginInput = {
         memberNick: memberNick,
         memberPassword: memberPassword,
       };
+
       const member = new MemberService();
       const result = await member.login(loginInput);
-
-      // Auth
-      setAuthMember(result)
+      
+      // Saving Authenticated user
+      setAuthMember(result);
       handleLoginClose();
-    } catch (err) {
+      
+
+    } catch(err) {
       console.log(err);
       handleLoginClose();
       sweetErrorHandling(err).then();
-      
     }
-  };
-
-  return (
+   }
+   return (
     <div>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -146,7 +153,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                 id="outlined-basic"
                 label="username"
                 variant="outlined"
-                onChange={handleUsername}
+                onChange={handleUserName}
               />
               <TextField
                 sx={{ my: "17px" }}
@@ -160,7 +167,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                 label="password"
                 variant="outlined"
                 onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
+                onKeyDown={handlepasswordKewDown}
               />
               <Fab
                 sx={{ marginTop: "30px", width: "120px" }}
@@ -208,6 +215,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                 label="username"
                 variant="outlined"
                 sx={{ my: "10px" }}
+                onChange={handleUserName}
               />
               <TextField
                 id={"outlined-basic"}
@@ -215,7 +223,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                 variant={"outlined"}
                 type={"password"}
                 onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
+                onKeyDown={handlepasswordKewDown}
               />
               <Fab
                 sx={{ marginTop: "27px", width: "120px" }}
